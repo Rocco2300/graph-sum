@@ -6,6 +6,9 @@ int main()
 {
     graph* g;
     g = create_graph(3, 2);
+    add_edge(g, 1, 2);
+    add_edge(g, 3, 1);
+    print_graph(g);
     // FILE* file;
     // file = fopen("ceva.txt", "r");
     // if(file == NULL)
