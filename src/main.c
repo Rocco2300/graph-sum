@@ -11,7 +11,12 @@ int main()
     }
     int var;
     fscanf(file, "%d", &var);
-    printf("%d", var);
+    for(int i = 0; i < var; i++)
+    {
+        int x, y;
+        fscanf(file, "%d %d", &x, &y);
+        printf("%d %d\n", x, y);
+    }
     fclose(file);
     return 0;
 }
