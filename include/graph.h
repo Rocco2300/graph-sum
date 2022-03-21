@@ -1,0 +1,3 @@
+struct Edge;
+struct Graph;
+
