@@ -55,7 +55,7 @@ void output_graph(const char* file_path, graph* g)
 void output_adj_mat(const char* file_path, int** mat, int size)
 {
     FILE* file;
-    file = fopen(file_path, "a");
+    file = fopen(file_path, "w");
     if(file == NULL)
     {
         printf("Error opening file!");
@@ -119,6 +119,23 @@ void output_sums(const char* file_path, int in_sum, int out_sum)
     fprintf(file, "Insum: %d\n", in_sum);
     fprintf(file, "Outsum: %d\n", out_sum);
     fclose(file);
+}
+
+void output_requirement(const char* file_path, graph* g)
+{
+    int** mat = build_adj_mat(g);
+    int* indegree = build_indegree(g);
+    int* outdegree = build_outdegree(g);
+    output_adj_mat(file_path, mat, 3);
+    output_degrees(file_path, indegree, 3, 'i');
+    output_degrees(file_path, outdegree, 3, 'o');
+    int is = get_indegree_sum(g);
+    int os = get_outdegree_sum(g);
+    output_sums(file_path, is, os);
+    free(indegree);
+    free(outdegree);
+    destroy_adj_mat(mat, 3);
+    destroy_graph(g);
 }
 
 void print_graph(graph* g)
