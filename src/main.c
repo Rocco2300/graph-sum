@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-#include "graph.h"
+#include "graph_utils.h"
+
 
 int main()
 {
@@ -9,6 +10,7 @@ int main()
     add_edge(g, 1, 2);
     add_edge(g, 3, 1);
     print_graph(g);
+    destroy_graph(g);
     // FILE* file;
     // file = fopen("ceva.txt", "r");
     // if(file == NULL)

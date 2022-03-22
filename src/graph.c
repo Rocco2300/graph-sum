@@ -1,16 +1,5 @@
 #include "graph.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-
-struct my_graph
-{
-    int num_nodes;
-    int num_edges;
-    int curr_num_edges;
-    int** edges;
-};
-
 graph* create_graph(int num_nodes, int num_edges)
 {
     graph* g = malloc(sizeof(*g));
