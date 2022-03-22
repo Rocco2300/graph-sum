@@ -126,16 +126,15 @@ void output_requirement(const char* file_path, graph* g)
     int** mat = build_adj_mat(g);
     int* indegree = build_indegree(g);
     int* outdegree = build_outdegree(g);
-    output_adj_mat(file_path, mat, 3);
-    output_degrees(file_path, indegree, 3, 'i');
-    output_degrees(file_path, outdegree, 3, 'o');
+    output_adj_mat(file_path, mat, g->num_nodes);
+    output_degrees(file_path, indegree, g->num_nodes, 'i');
+    output_degrees(file_path, outdegree, g->num_nodes, 'o');
     int is = get_indegree_sum(g);
     int os = get_outdegree_sum(g);
     output_sums(file_path, is, os);
     free(indegree);
     free(outdegree);
-    destroy_adj_mat(mat, 3);
-    destroy_graph(g);
+    destroy_adj_mat(mat, g->num_nodes);
 }
 
 void print_graph(graph* g)
