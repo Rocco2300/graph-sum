@@ -52,15 +52,10 @@ void add_edge(graph* g, int first_edge, int second_edge)
         return;
     }
 
+    if(g->edges[g->curr_num_edges] == NULL)
+        return;
+        
     g->edges[g->curr_num_edges][0] = first_edge;
     g->edges[g->curr_num_edges][1] = second_edge;
     g->curr_num_edges++;
-}
-
-void print_graph(graph* g)
-{
-    for(int i = 0; i < g->num_edges; i++)
-    {
-        printf("%d -> %d\n", g->edges[i][0], g->edges[i][1]);
-    }
 }

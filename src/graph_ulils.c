@@ -3,7 +3,7 @@
 int** build_adj_mat(graph* g)
 {
     int** mat;
-    mat = calloc(g->num_nodes, sizeof(int*));
+    mat = calloc(g->num_nodes + 1, sizeof(int*));
 
     if(mat == NULL)
     {
@@ -11,11 +11,18 @@ int** build_adj_mat(graph* g)
         return;
     }
 
-    for(int i = 0; i < g->num_nodes; i++)
+    for(int i = 0; i <= g->num_nodes; i++)
     {
-        mat[i] = calloc(g->num_nodes, sizeof(int));
+        mat[i] = calloc(g->num_nodes + 1, sizeof(int));
         if(mat[i] == NULL)
             destroy_adj_mat(mat, g->num_nodes);
+    }
+
+    for(int i = 0; i < g->num_edges; i++)
+    {
+        int x = g->edges[i][0];
+        int y = g->edges[i][1];
+        mat[x][y] = 1;
     }
     return mat;
 }
@@ -25,7 +32,7 @@ void destroy_adj_mat(int** mat, int size)
     if(mat == NULL)
         return;
 
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i <= size; i++)
     {
         if(mat[i] != NULL)
             free(mat[i]);
@@ -33,7 +40,7 @@ void destroy_adj_mat(int** mat, int size)
     free(mat);
 }
 
-int* get_indegree(graph* g)
+int* build_indegree(graph* g)
 {
     int* rez = calloc(g->num_nodes + 1, sizeof(int));
 
@@ -48,7 +55,7 @@ int* get_indegree(graph* g)
     return rez;
 }
 
-int* get_outdegree(graph* g)
+int* build_outdegree(graph* g)
 {
     int* rez = calloc(g->num_nodes + 1, sizeof(int));
 
@@ -66,7 +73,7 @@ int* get_outdegree(graph* g)
 int get_indegree_sum(graph* g)
 {
     int sum = 0;
-    int* degrees = get_indegree(g);
+    int* degrees = build_indegree(g);
 
     for(int i = 1; i <= g->num_nodes; i++)
     {
@@ -80,7 +87,7 @@ int get_indegree_sum(graph* g)
 int get_outdegree_sum(graph* g)
 {
     int sum = 0;
-    int* degrees = get_outdegree(g);
+    int* degrees = build_outdegree(g);
 
     for(int i = 1; i <= g->num_nodes; i++)
     {
