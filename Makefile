@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -g
-TARGET = a
+TARGET = graph_sum
 
 SRC = src
 OBJ = obj
