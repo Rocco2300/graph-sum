@@ -56,6 +56,13 @@ void destroy_graph(graph* g)
 
 void add_edge(graph* g, int first_edge, int second_edge)
 {
+    if(first_edge <= 0 || first_edge > g->num_nodes ||
+        second_edge <= 0 || second_edge > g->num_nodes) 
+    {
+        printf("Node outside of bounds!\n");
+        return;
+    }
+
     g->edges[g->curr_num_edges][0] = first_edge;
     g->edges[g->curr_num_edges][1] = second_edge;
     g->curr_num_edges++;
