@@ -7,7 +7,7 @@ graph* input_graph(const char* file_path)
     if(file == NULL)
     {
         printf("Error opening file!");
-        return;
+        return NULL;
     }
 
     int num_nodes;

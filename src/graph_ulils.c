@@ -8,7 +8,7 @@ int** build_adj_mat(graph* g)
     if(mat == NULL)
     {
         free(mat);
-        return;
+        return NULL;
     }
 
     for(int i = 0; i <= g->num_nodes; i++)

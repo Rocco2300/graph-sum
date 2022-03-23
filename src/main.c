@@ -18,7 +18,6 @@ int main(int argc, char* argv[])
     g = input_graph(input_path);
     output_requirement("ouput.txt", g);
     output_graph("output.dot", g);
-    print_graph(g);
     destroy_graph(g);
 
     return 0;
