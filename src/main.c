@@ -10,6 +10,8 @@ int main(int argc, char* argv[])
     {
         printf("No input file!\n");
         printf("Usage: %s [options] input_file [output_file]\n", argv[0]);
+        system("PAUSE");
+        return EXIT_FAILURE;
     }
 
     const char* input_path = argv[1];
@@ -18,7 +20,8 @@ int main(int argc, char* argv[])
     g = input_graph(input_path);
     output_requirement("ouput.txt", g);
     output_graph("output.dot", g);
+    system("dot -Tsvg output.dot > output.svg");
     destroy_graph(g);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
