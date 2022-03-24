@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
     if(argc != 2)
     {
         printf("No input file!\n");
-        printf("Usage: %s [options] input_file [output_file]\n", argv[0]);
+        printf("Usage: %s input_file\n", argv[0]);
         system("PAUSE");
         return EXIT_FAILURE;
     }
