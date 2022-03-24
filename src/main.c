@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
     g = input_graph(input_path);
     output_requirement("ouput.txt", g);
     output_graph("output.dot", g);
-    system("dot -Tsvg output.dot > output.png");
+    system("dot -Tpng output.dot > output.png");
     destroy_graph(g);
 
     return EXIT_SUCCESS;
