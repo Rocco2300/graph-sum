@@ -11,7 +11,7 @@ As an addition I also added a way to see the graph using graphviz.
 
 # Dependencies
 
--make
+- make
 
 # Usage
 
